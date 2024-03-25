@@ -15,8 +15,8 @@ async function getMoviemovieDetails(searchQuery) {
 }
 
 
-//debounce implementation with 0.5s delay
-function debounce(callback, delay = 500) {
+//debounce implementation with 0.1s delay
+function debounce(callback, delay = 100) {
     let timeout;
 
     return (searchQuery) => {
