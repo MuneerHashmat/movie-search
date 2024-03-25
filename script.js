@@ -15,8 +15,8 @@ async function getMoviemovieDetails(searchQuery) {
 }
 
 
-//debounce implementation with 0.1s delay
-function debounce(callback, delay = 100) {
+//debounce implementation with 1.5s delay
+function debounce(callback, delay = 1500) {
     let timeout;
 
     return (searchQuery) => {
@@ -29,7 +29,9 @@ function debounce(callback, delay = 100) {
 
 let displayMoviemovieDetails = debounce(async (searchQuery) => {
     try {
+        loadingModal.showModal();
         let moviemovieDetails = await getMoviemovieDetails(searchQuery);
+        loadingModal.close();
         let movieArray = moviemovieDetails.Search;
         loadMoviemovieDetails(movieArray);
     } catch (error) {
